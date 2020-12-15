@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import ToDo from "../components/ToDo";
-import { actionCreators } from "../store";
+import { add } from "../store";
 
 function Home({ toDos, addToDo }) {
-    //8 [happy.id]
+    console.log(toDos);
     const [text, setText] = useState("");
     const onChange = (e) => {
         setText(e.target.value); // 1. Input변경시 입력한 값을 text로 수정 (ex 입력감 => happy)
@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        addToDo: (text) => dispatch(actionCreators.addToDo(text)), //3. store에 있는 actionCreators.addToDo(happy) 값을가지고 이동
+        addToDo: (text) => dispatch(add(text)), //3. store에 있는 actionCreators.addToDo(happy) 값을가지고 이동
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -19,8 +19,13 @@ function Detail({ toDos }) {
     );
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+    console.log(ownProps);
     return { toDos: state };
 }
 
-export default connect(mapStateToProps)(Detail);
+function mapDispatchToProps() {
+    return null;
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);
